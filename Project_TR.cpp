@@ -11,8 +11,8 @@ int input_fn(int);//Prototype for Input Function
 int spacing(int);//Prototype for Spacing Function
 int ticket_booking();//Prototype fot Booking Ticket
 int ticket_cancelation();//Prototype for Cancelling Ticket
-int database();
-int help();
+int database();//Prototype for Database Function
+int help();//Prototype for showing Help
 int thankyou();//Prototype for ThankYou Screen
 int i;//Loop Variable
 int main(){
