@@ -1,9 +1,10 @@
-// Last Updated : 27-09-20 13:53
+// Updated : 27-09-20 22:35
 #include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
 #include<conio.h>
+#include<ctype.h>
 using namespace std;
 int main_screen();//Prototype for Main Screen
 int snd_screen(int);//Prototype for Input Screen
@@ -12,12 +13,13 @@ int spacing(int);//Prototype for Spacing Function
 int ticket_booking();//Prototype fot Booking Ticket
 int ticket_cancelation();//Prototype for Cancelling Ticket
 int database();//Prototype for Database Function
-int help();//Prototype for showing Help
+int help();//Prototype for Help Function
 int thankyou();//Prototype for ThankYou Screen
+int book_ticket();
 int i;//Loop Variable
 int main(){
 	main_screen();
-  	return 0;	
+  	return 0;
 }
 int main_screen(){
 	spacing(1);
@@ -38,7 +40,7 @@ int main_screen(){
 	printf("Choose Option (1/2/3/4/5) : ");
 	scanf("%d", &i);
 	snd_screen(i);
-	return 0;	
+	return 0;
 }
 int snd_screen(int input){
 	switch(input){
@@ -59,9 +61,11 @@ int snd_screen(int input){
 				break;
 		default:printf("\n");
 				for(i=0;i<=5;i++)
-					printf("\t   "); 
+					printf("\t   ");
 				printf("------INVALID INPUT-------");
-				sleep(1.5);
+				sleep(2);
+				system("cls");
+				main_screen();
 	}
 	return 0;
 }
@@ -69,7 +73,7 @@ int spacing(int value){
     switch(value){
 		case 1: for(i=0;i<3;i++)//Heading Spacing
 					printf("\n");
-				for(i=0;i<5;i++)	
+				for(i=0;i<5;i++)
 					printf("\t");
 				for(i=0;i<=32;i++)
 					printf("*");
@@ -80,7 +84,7 @@ int spacing(int value){
 	return 0;
 	}
 }
-int input_fn(int input_value){//Function for showing input
+int input_fn(int input_value){//Function for showing Input
 	for(i=0;i<=5;i++)
 		printf("\t    ");
 	printf("Your Choice --> ");
@@ -113,6 +117,7 @@ int ticket_booking(){//Fuction for Ticket Booking Screen
 	scanf("%d", &i);
 	switch(i){
 		case 1: input_fn(i);
+				book_ticket();
 				break;
 		case 2: input_fn(i);
 				break;
@@ -126,7 +131,7 @@ int ticket_booking(){//Fuction for Ticket Booking Screen
 				break;
 		default:printf("\n");
 				for(i=0;i<=5;i++)
-					printf("\t   "); 
+					printf("\t   ");
 				printf("------INVALID INPUT-------");
 				sleep(2);
 				system("cls");
@@ -167,7 +172,7 @@ int ticket_cancelation(){//Fuction for Ticket Cancellation Screen
 				break;
 		default:printf("\n");
 				for(i=0;i<=5;i++)
-					printf("\t   "); 
+					printf("\t   ");
 				printf("------INVALID INPUT-------");
 				sleep(2);
 				system("cls");
@@ -175,7 +180,7 @@ int ticket_cancelation(){//Fuction for Ticket Cancellation Screen
 	}
 	return 0;
 }
-int database(){
+int database(){//Function for Storing All Details
 	spacing(1);
 	spacing(2);
 	printf("\tDatabase\n");
@@ -208,7 +213,7 @@ int database(){
 				break;
 		default:printf("\n");
 				for(i=0;i<=5;i++)
-					printf("\t   "); 
+					printf("\t   ");
 				printf("------INVALID INPUT-------");
 				sleep(2);
 				system("cls");
@@ -216,24 +221,38 @@ int database(){
 	}
 	return 0;
 }
-int help(){
+int help(){//Function for providing Help
 	spacing(1);
 	spacing(2);
-	printf("\t     Help\n");
+	printf("\t     Help\ṅn");
 	spacing(1);
 	spacing(2);
-	printf("Press Enter to Go Back.....");
+	printf("Press Any Key to Go Back.....");
 	getch();
 	system("cls");
-	main_screen();
 }
-int thankyou(){//Function for ThankYou Screen
+int thankyou(){//Function for Thank You Screen
 	spacing(1);
 	spacing(2);
 	printf("\t   Thank You!");
 	spacing(2);
 	printf("\t   Visit Again\n");
 	spacing(1);
-	exit(0);
+	sleep(1.5);
+	system("cls");
+	exit(0);g
 }
-
+int book_ticket(){
+	char ans, username[20];
+	spacing(1);
+	spacing(2);
+	printf("Are You A User? (Y/N) : ");
+	cin>>ans;
+	spacing(1);
+	spacing(2);
+	if( tolower(ans) == 'y'){
+		printf("Enter Username and Password -->");
+		spacing(2);
+		printf("Username : ");
+	}
+}
