@@ -224,7 +224,7 @@ int database(){//Function for Storing All Details
 int help(){//Function for providing Help
 	spacing(1);
 	spacing(2);
-	printf("\t     Help\ṅn");
+	printf("\t     Help\n");
 	spacing(1);
 	spacing(2);
 	printf("Press Any Key to Go Back.....");
