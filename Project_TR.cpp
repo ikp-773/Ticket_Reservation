@@ -5,6 +5,8 @@
 #include<unistd.h>
 #include<conio.h>
 #include<ctype.h>
+#include<fstream>
+#include<string.h>
 using namespace std;
 int login_screen();
 int main_screen();//Prototype for Main Screen
@@ -22,6 +24,39 @@ int main(){
 	login_screen();
   	return 0;
 }
+class login{
+	public : 	char username[20][10], password[20][10];
+				int column_user, column=0,;
+				void Clear_Data(){
+					for(column_user=0;column_user<10;column_user++)
+						{	strcpy(username[column_user],"NIL");
+				  			strcpy(password[column_user],"NIL");
+						}
+			 	}
+				void New_User(){
+					{   spacing(1);
+						spacing(2);
+						printf("Sign Up");
+						spacing(1);
+						spacing(2);
+						for (i=0;i<10;i++)
+							{ if(strcmp(username[i],"NIL")==0)
+					 			{   column=i;
+									break;
+					 			}
+							}
+				 		for(column=free_column_user;column<10;column++)
+							{   spacing(2);
+								cout<<"\tUsername:";
+					  			gets(username[column]);
+					  			spacing(2);
+					  			cout<<"\tPassword:";
+					  			gets(password[column]);
+					  			spacing(2);
+							}
+			 		}
+				}
+}user_key;
 int login_screen(){
 	char username[20],password[20];
 	spacing(1);
@@ -48,6 +83,8 @@ int login_screen(){
 				 printf("--> Password : ");
 				 cin>>password;
 				 getch();
+		case 2 : system("cls");
+				 user_key.New_User();
 
 	}
 	system("cls");
