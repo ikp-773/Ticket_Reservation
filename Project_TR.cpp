@@ -29,7 +29,7 @@ class login
 {
 public:
 	char username[20][10], password[20][10];
-	int column_user, column = 0, free_column_user;
+	int column_user, free_column_user;
 	void Clear_Data()
 	{
 		for (column_user = 0; column_user < 10; column_user++)
@@ -46,7 +46,7 @@ public:
 		spacing(1);
 		spacing(2);
 		for (i = 0; i < 10; i++)
-		{
+		{ 
 			if (strcmp(username[i], "NIL") == 0)
 			{
 				free_column_user = i;
@@ -54,12 +54,11 @@ public:
 			}
 		}
 		spacing(2);
-		cout << "\tUsername:";
-		gets(username[column]);
-		getch();
+		printf("--> Username : ");
+		cin >> username[free_column_user];
 		spacing(2);
-		cout << "\tPassword:";
-		gets(password[column]);
+		printf("--> Password : ");
+		cin >> password[free_column_user];
 		spacing(2);
 	}
 } user_key;
@@ -71,6 +70,8 @@ int login_screen()
 	spacing(2);
 	printf("\tTIcket Reservation\n");
 	spacing(1);
+	spacing(2);
+	printf("Login to Continue");
 	spacing(2);
 	printf("--> Sign In");
 	spacing(2);
