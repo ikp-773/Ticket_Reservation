@@ -8,18 +8,19 @@
 #include <fstream>
 #include <string.h>
 using namespace std;
-int login_screen();		  //Prototype for Login Screen
-int main_screen();		  //Prototype for Main Screen
-int snd_screen(int);	  //Prototype for Input Screen
-int input_fn(int);		  //Prototype for Input Function
-int spacing(int);		  //Prototype for Spacing Function
-int ticket_booking();	  //Prototype fot Booking Ticket
-int ticket_cancelation(); //Prototype for Cancelling Ticket
-int database();			  //Prototype for Database Function
-int help();				  //Prototype for Help Function
-int thankyou();			  //Prototype for ThankYou Screen
+// Function Prototypes
+int login_screen();		  
+int main_screen();		  
+int snd_screen(int);	  
+int input_fn(int);		  
+int spacing(int);		  
+int ticket_booking();	  
+int ticket_cancelation(); 
+int database();			  
+int help();				  
+int thankyou();			  
 int book_ticket();
-int i; //Loop Variable
+int i; 
 int main()
 {
 	login_screen();
@@ -27,44 +28,28 @@ int main()
 }
 class login
 {
+	char username[10], password[10];
+	int freespace;
+
 public:
-	char username[20][10], password[20][10];
-	int column_user, free_column_user;
-	void Clear_Data()
+	void newUser()
 	{
-		for (column_user = 0; column_user < 10; column_user++)
-		{
-			strcpy(username[column_user], "NIL");
-			strcpy(password[column_user], "NIL");
-		}
-	}
-	void New_User()
-	{
-		spacing(1);
-		spacing(2);
-		printf("\t    Sign Up\n");
-		spacing(1);
-		spacing(2);
-		for (i = 0; i < 10; i++)
-		{ 
+		char ch, index = 0;
+		cout << "\n\t\tEnter Details Of User" << endl;
+		for (i = 0; i < 10; ++i)
 			if (strcmp(username[i], "NIL") == 0)
 			{
-				free_column_user = i;
+				freespace = i;
 				break;
 			}
-		}
-		spacing(2);
-		printf("--> Username : ");
-		cin >> username[free_column_user];
-		spacing(2);
-		printf("--> Password : ");
-		cin >> password[free_column_user];
-		spacing(2);
+				cout<<"-->Username : ");
+				gets(username[freespace]);
+				printf("-->Password : ");
+				gets(password[freespace]);
 	}
-} user_key;
+} loginKey;
 int login_screen()
 {
-	char username[20], password[20];
 	fstream f1;
 	spacing(1);
 	spacing(2);
@@ -83,25 +68,14 @@ int login_screen()
 	{
 	case 1:
 		system("cls");
-		spacing(1);
-		spacing(2);
-		printf("\t      Login\n");
-		spacing(1);
-		spacing(2);
-		printf("--> Username : ");
-		cin >> username;
-		spacing(2);
-		printf("--> Password : ");
-		cin >> password;
 		getch();
 		break;
 	case 2:
-		system("cls");
-		f1.open("User_Details.dat", ios::in | ios::out | ios::binary);
-		user_key.New_User();
-		f1.write((char *)&user_key, sizeof(user_key));
+		f1.open("UserDetails.dat", ios::in | ios::out | ios::app | ios::binary);
+		f1.write((char *)&loginKey, sizeof(loginKey));
+		loginKey.newUser();
 		f1.close();
-		getch();
+		break;
 	}
 	system("cls");
 	main_screen();
