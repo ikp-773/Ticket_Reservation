@@ -9,18 +9,18 @@
 #include <string.h>
 using namespace std;
 // Function Prototypes
-int login_screen();		  
-int main_screen();		  
-int snd_screen(int);	  
-int input_fn(int);		  
-int spacing(int);		  
-int ticket_booking();	  
-int ticket_cancelation(); 
-int database();			  
-int help();				  
-int thankyou();			  
+int login_screen();
+int main_screen();
+int snd_screen(int);
+int input_fn(int);
+int spacing(int);
+int ticket_booking();
+int ticket_cancelation();
+int database();
+int help();
+int thankyou();
 int book_ticket();
-int i; 
+int i;
 int main()
 {
 	login_screen();
@@ -28,24 +28,41 @@ int main()
 }
 class login
 {
-	char username[10], password[10];
-	int freespace;
+	char *username[10];
+	char *password[10];
+	int freespace, row_user;
 
 public:
-	void newUser()
+	int clearData()
 	{
-		char ch, index = 0;
-		cout << "\n\t\tEnter Details Of User" << endl;
+		for (row_user = 0; row_user < 10; row_user++)
+		{
+			strcpy(username[row_user], "NIL");
+			strcpy(password[row_user], "NIL");
+		}
+	}
+	int newUser()
+	{
+		system("cls");
+		spacing(1);
+		spacing(2);
+		printf("\t    Sign Up\n");
+		spacing(1);
+		spacing(2);
 		for (i = 0; i < 10; ++i)
-			if (strcmp(username[i], "NIL") == 0)
+			if (strcmpi(username[i], "NIL") == 0)
 			{
+				printf("inside");
 				freespace = i;
 				break;
 			}
-				cout<<"-->Username : ");
-				gets(username[freespace]);
-				printf("-->Password : ");
-				gets(password[freespace]);
+		spacing(2);
+		printf("-->Username : ");
+		gets(username[freespace]);
+		spacing(2);
+		printf("-->Password : ");
+		gets(password[freespace]);
+		getch();
 	}
 } loginKey;
 int login_screen()
@@ -53,7 +70,7 @@ int login_screen()
 	fstream f1;
 	spacing(1);
 	spacing(2);
-	printf("\tTIcket Reservation\n");
+	printf("\tTicket Reservation\n");
 	spacing(1);
 	spacing(2);
 	printf("Login to Continue");
