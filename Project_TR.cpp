@@ -24,7 +24,18 @@ int main(){
   	return 0;
 }
 int login_screen(){
-
+	spacing(1);
+	spacing(2);
+	printf("\tTIcket Reservation Login\n");
+	spacing(1);
+	spacing(2);
+	printf("--> Sign In");
+	spacing(2);
+	printf("--> Sign Up");
+	spacing(2);
+	printf("Choose Option (1/2) : ");
+	scanf("%d", &i);
+	system("cls");
 }
 int main_screen(){
 	spacing(1);
