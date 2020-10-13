@@ -1,4 +1,4 @@
-// Updated : 13-10-20 08:05
+// Updated : 13-10-20 17:56
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -108,7 +108,7 @@ int main_screen()
 	spacing(2);
 	printf("--> Cancel Ticket");
 	spacing(2);
-	printf("--> Database");
+	printf("--> Enquiry");
 	spacing(2);
 	printf("--> Help");
 	spacing(2);
