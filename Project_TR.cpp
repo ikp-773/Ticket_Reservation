@@ -27,11 +27,11 @@ int main(){
 class login{
 	public : 	char username[20][10], password[20][10];
 				int column_user, column=0,free_column_user;
-				void Clear_Data(){
+				void Clear_Data(){	
 					for(column_user=0;column_user<10;column_user++)
 						{	strcpy(username[column_user],"NIL");
 				  			strcpy(password[column_user],"NIL");
-						}
+						}	
 			 	}
 				void New_User(){
 					spacing(1);
@@ -54,7 +54,7 @@ class login{
 							gets(password[column]);
 							spacing(2);
 						}
-			 		}
+			 		}	
 }user_key;
 int login_screen(){
 	char username[20], password[20];
@@ -89,7 +89,7 @@ int login_screen(){
 				 user_key.New_User();
 				 f1.write((char *) & user_key,sizeof(user_key));
 				 f1.close();
-				 getch();
+				 getch();			
 	}
 	system("cls");
 	main_screen();
