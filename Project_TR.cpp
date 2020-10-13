@@ -1,4 +1,4 @@
-// Updated : 27-09-20 22:35
+// Updated : 13-10-20 08:05
 #include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
@@ -6,6 +6,7 @@
 #include<conio.h>
 #include<ctype.h>
 using namespace std;
+int login_screen();
 int main_screen();//Prototype for Main Screen
 int snd_screen(int);//Prototype for Input Screen
 int input_fn(int);//Prototype for Input Function
@@ -18,8 +19,12 @@ int thankyou();//Prototype for ThankYou Screen
 int book_ticket();
 int i;//Loop Variable
 int main(){
+	login_screen();
 	main_screen();
   	return 0;
+}
+int login_screen(){
+
 }
 int main_screen(){
 	spacing(1);
@@ -230,6 +235,7 @@ int help(){//Function for providing Help
 	printf("Press Any Key to Go Back.....");
 	getch();
 	system("cls");
+	main_screen();
 }
 int thankyou(){//Function for Thank You Screen
 	spacing(1);
@@ -240,19 +246,10 @@ int thankyou(){//Function for Thank You Screen
 	spacing(1);
 	sleep(1.5);
 	system("cls");
-	exit(0);g
+	exit(0);
 }
 int book_ticket(){
 	char ans, username[20];
 	spacing(1);
 	spacing(2);
-	printf("Are You A User? (Y/N) : ");
-	cin>>ans;
-	spacing(1);
-	spacing(2);
-	if( tolower(ans) == 'y'){
-		printf("Enter Username and Password -->");
-		spacing(2);
-		printf("Username : ");
-	}
 }
