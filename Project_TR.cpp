@@ -20,13 +20,13 @@ int book_ticket();
 int i;//Loop Variable
 int main(){
 	login_screen();
-	main_screen();
   	return 0;
 }
 int login_screen(){
+	char username[20],password[20];
 	spacing(1);
 	spacing(2);
-	printf("\tTIcket Reservation Login\n");
+	printf("\tTIcket Reservation\n");
 	spacing(1);
 	spacing(2);
 	printf("--> Sign In");
@@ -35,7 +35,23 @@ int login_screen(){
 	spacing(2);
 	printf("Choose Option (1/2) : ");
 	scanf("%d", &i);
+	switch(i){
+		case 1 : system("cls");
+				 spacing(1);
+				 spacing(2);
+				 printf("\t      Login\n");
+				 spacing(1);
+				 spacing(2);
+				 printf("--> Username : ");
+				 cin>>username;
+				 spacing(2);
+				 printf("--> Password : ");
+				 cin>>password;
+				 getch();
+
+	}
 	system("cls");
+	main_screen();
 }
 int main_screen(){
 	spacing(1);
