@@ -8,7 +8,7 @@
 #include<fstream>
 #include<string.h>
 using namespace std;
-int login_screen();
+int login_screen();//Prototype for Login Screen
 int main_screen();//Prototype for Main Screen
 int snd_screen(int);//Prototype for Input Screen
 int input_fn(int);//Prototype for Input Function
