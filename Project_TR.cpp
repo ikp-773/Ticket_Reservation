@@ -26,7 +26,7 @@ int main(){
 }
 class login{
 	public : 	char username[20][10], password[20][10];
-				int column_user, column=0,;
+				int column_user, column=0,free_column_user;
 				void Clear_Data(){
 					for(column_user=0;column_user<10;column_user++)
 						{	strcpy(username[column_user],"NIL");
@@ -34,31 +34,31 @@ class login{
 						}
 			 	}
 				void New_User(){
-					{   spacing(1);
-						spacing(2);
-						printf("Sign Up");
-						spacing(1);
-						spacing(2);
-						for (i=0;i<10;i++)
-							{ if(strcmp(username[i],"NIL")==0)
-					 			{   column=i;
-									break;
-					 			}
+					spacing(1);
+					spacing(2);
+					printf("\tSign Up\n");
+					spacing(1);
+					spacing(2);
+					for (i=0;i<10;i++)
+						{ if(strcmp(username[i],"NIL")==0)
+							{   free_column_user=i;
+								break;
 							}
-				 		for(column=free_column_user;column<10;column++)
-							{   spacing(2);
-								cout<<"\tUsername:";
-					  			gets(username[column]);
-					  			spacing(2);
-					  			cout<<"\tPassword:";
-					  			gets(password[column]);
-					  			spacing(2);
-							}
+						}
+				 	for(column=free_column_user;column<10;column++)
+						{   spacing(2);
+							cout<<"\tUsername:";
+							gets(username[column]);
+							spacing(2);
+							cout<<"\tPassword:";
+							gets(password[column]);
+							spacing(2);
+						}
 			 		}
-				}
 }user_key;
 int login_screen(){
-	char username[20],password[20];
+	char username[20], password[20];
+	fstream f1;
 	spacing(1);
 	spacing(2);
 	printf("\tTIcket Reservation\n");
@@ -83,9 +83,13 @@ int login_screen(){
 				 printf("--> Password : ");
 				 cin>>password;
 				 getch();
+				 break;
 		case 2 : system("cls");
+				 f1.open("User_Details.dat",ios::in|ios::out|ios::binary);
 				 user_key.New_User();
-
+				 f1.write((char *) & user_key,sizeof(user_key));
+				 f1.close();
+				 getch();
 	}
 	system("cls");
 	main_screen();
