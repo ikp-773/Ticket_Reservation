@@ -21,7 +21,7 @@ int help();
 int thankyou();
 int database();
 int book_ticket();
-int i;
+int i; //Common Loop Variable
 int main()
 { //Main Function
 	login_screen();
@@ -119,28 +119,28 @@ int main_screen()
 	choice_screen(i);
 	return 0;
 }
-int choice_screen(int input)
+int choice_screen(int main_choice)
 { //Function for choice input of main screen
-	switch (input)
+	switch (main_choice)
 	{
 	case 1:
-		input_fn(input);
+		input_fn(main_choice);
 		ticket_booking();
 		break;
 	case 2:
-		input_fn(input);
+		input_fn(main_choice);
 		ticket_cancelation();
 		break;
 	case 3:
-		input_fn(input);
+		input_fn(main_choice);
 		enquiry();
 		break;
 	case 4:
-		input_fn(input);
+		input_fn(main_choice);
 		help();
 		break;
 	case 5:
-		input_fn(input);
+		input_fn(main_choice);
 		thankyou();
 		break;
 	default:
@@ -154,9 +154,9 @@ int choice_screen(int input)
 	}
 	return 0;
 }
-int spacing(int value)
+int spacing(int spacing_value)
 { //Function for spacing
-	switch (value)
+	switch (spacing_value)
 	{
 	case 1:
 		for (i = 0; i < 3; i++) //Heading Spacing
