@@ -67,7 +67,8 @@ struct UserDetails
 	}
 	int alreadyUser()
 	{ //Function for already user
-		char given_username[1][20];char given_password[1][20];
+		char *given_username[1][20];
+		char *given_password[1][20];
 		int indexValue = 0;
 		system("cls");
 		spacing(1);
