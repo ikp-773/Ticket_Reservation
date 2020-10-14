@@ -68,7 +68,7 @@ struct UserDetails
 	}
 	int alreadyUser()
 	{ //Function for already user
-		char given_username[20], given_password[20];
+		char* given_username[20];char* given_password[20];
 		int indexValue = 0;
 		system("cls");
 		spacing(1);
@@ -96,7 +96,7 @@ struct UserDetails
 			else
 			{ //given password is not admin password
 				spacing(2);
-				printf("\tIncorrect Password, Please Try Again!\n")
+				printf("\tIncorrect Password, Please Try Again!\n");
 					spacing(2);
 				alreadyUser();
 			}
