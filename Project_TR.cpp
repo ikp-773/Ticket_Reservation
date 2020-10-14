@@ -27,7 +27,7 @@ int main()
 	login_screen();
 	return 0;
 }
-struct login
+struct UserDetails
 { //Structure for User Details
 	char *username[10];
 	char *password[10];
@@ -40,16 +40,17 @@ struct login
 			strcpy(username[row_user], "NIL");
 			strcpy(password[row_user], "NIL");
 		}
+		return 0;
 	}
 	int newUser()
-	{ //Function for creatinf new user
+	{ //Function for creating new user
 		system("cls");
 		spacing(1);
 		spacing(2);
 		printf("\t    Sign Up\n");
 		spacing(1);
 		spacing(2);
-		for (i = 0; i < 10; ++i)
+		for (i = 0; i < 10; i++)
 			if (strcmpi(username[i], "NIL") == 0)
 			{
 				printf("inside");
@@ -63,11 +64,49 @@ struct login
 		printf("-->Password : ");
 		gets(password[freespace]);
 		getch();
+		return 0;
 	}
-} loginKey;
+	int alreadyUser()
+	{ //Function for already user
+		char given_username[20], given_password[20];
+		system("cls");
+		spacing(1);
+		spacing(2);
+		printf("\t    Sign In\n");
+		spacing(1);
+		spacing(2);
+		printf("-->Username : ");
+		gets(given_username[20]);
+		spacing(2);
+		printf("-->Password : ");
+		gets(given_password[20]);
+		if (strcmpi(given_username[20], "admin") == 0)
+			if (strcmpi(given_password[20], "admin") == 0)
+				else for (i = 0; i < 10; i++) if (strcmpi(given_username[20], username[i]) == 0)
+				{
+					if (strcmpi(given_password[20], password[i]) == 0)
+						spacing(2);
+					printf("Welcome, " + given_username[20]);
+					spacing(2);
+					mainscreen();
+					else spacing(2);
+					printf("Wrong Password, Try Again!");
+					spacing(2);
+					alreadyUser();
+				}
+
+			else
+			{
+				spacing(2);
+				printf("No Such Users Found, Try Again!");
+				spacing(2);
+				alreadyUser();
+			}
+	}
+} dataKey;
 int login_screen()
 { //Login Screen
-	fstream f1;
+	fstream alreadyUser_obj, newUser_obj;
 	spacing(1);
 	spacing(2);
 	printf("\tTicket Reservation\n");
@@ -83,15 +122,17 @@ int login_screen()
 	scanf("%d", &i);
 	switch (i)
 	{
-	case 1:// Case for Already User
-		system("cls");
-		getch();
+	case 1: // Case for Already User
+		alreadyUser_obj.open("UserDetails.dat", ios::in | ios::out | ios::app | ios::binary);
+		alreadyUser_obj.read((char *)&loginKey, sizeof(loginKey));
+		dataKey.alreadyUser();
+		alreadyUser_obj.close();
 		break;
-	case 2:// Case for New User
-		f1.open("UserDetails.dat", ios::in | ios::out | ios::app | ios::binary);
-		f1.write((char *)&loginKey, sizeof(loginKey));
-		loginKey.newUser();
-		f1.close();
+	case 2: // Case for New User
+		newUser_obj.open("UserDetails.dat", ios::in | ios::out | ios::app | ios::binary);
+		newUser_obj.write((char *)&loginKey, sizeof(loginKey));
+		dataKey.newUser();
+		newUser_obj.close();
 		break;
 	}
 	system("cls");
