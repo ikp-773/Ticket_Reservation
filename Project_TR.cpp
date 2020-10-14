@@ -80,10 +80,10 @@ struct UserDetails
 		gets(given_username[1][20]);
 		spacing(2);
 		printf("-->Password : ");
-		gets(given_password[[1]20]);
+		gets(given_password[1][20]);
 		if (strcmp(given_username[1][20], "admin") == 0)
 		{ //given username is admin username
-			if (strcmp(given_password[20], "admin") == 0)
+			if (strcmp(given_password[1][20], "admin") == 0)
 			{ //all given credentials are correct
 				system("cls");
 				for (i = 0; i < 10; i++)
@@ -104,11 +104,11 @@ struct UserDetails
 		else
 		{ //given username is not admin credentials
 			for (i = 0; i < 10; i++)
-				if (strcmpi(given_username[20], username[i]) == 0)
+				if (strcmpi(given_username[1][20], username[i][20]) == 0)
 					indexValue = i;
 			if (indexValue != 0)
 			{ //given username is in file
-				if (strcmpi(given_password[20], password[indexValue]) == 0)
+				if (strcmpi(given_password[1][20], password[indexValue][20]) == 0)
 				{ //given password matches the corresponding username
 					spacing(2);
 					printf("\tWelcome,%s \n", username[i]);
