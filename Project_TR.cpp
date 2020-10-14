@@ -58,10 +58,10 @@ struct UserDetails
 			}
 		spacing(2);
 		printf("-->Username : ");
-		gets(username[free]);
+		gets(username[free][20]);
 		spacing(2);
 		printf("-->Password : ");
-		gets(password[free]);
+		gets(password[free][20]);
 		getch();
 		return 0;
 	}
