@@ -35,11 +35,7 @@ struct UserDetails
 
 	int clearData()
 	{ //Function for clearing all data from file
-		for (row_user = 0; row_user < 10; row_user++)
-		{
-			strcpy(username[row_user], "NIL");
-			strcpy(password[row_user], "NIL");
-		}
+		remove("UserDetails.dat");
 		return 0;
 	}
 	int newUser()
