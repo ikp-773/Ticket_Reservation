@@ -11,29 +11,29 @@ using namespace std;
 // Function Prototypes
 int login_screen();
 int main_screen();
-int snd_screen(int);
+int choice_screen(int);
 int input_fn(int);
 int spacing(int);
 int ticket_booking();
 int ticket_cancelation();
-int database();
+int enquiry();
 int help();
 int thankyou();
+int database();
 int book_ticket();
 int i;
-int main()
+int main()// Main Function
 {
 	login_screen();
 	return 0;
 }
-class login
+struct login// Login structure for taking User Details
 {
 	char *username[10];
 	char *password[10];
 	int freespace, row_user;
 
-public:
-	int clearData()
+	int clearData()// Function for Clearing all the Data
 	{
 		for (row_user = 0; row_user < 10; row_user++)
 		{
@@ -41,7 +41,7 @@ public:
 			strcpy(password[row_user], "NIL");
 		}
 	}
-	int newUser()
+	int newUser()// Function for accepting details of new User
 	{
 		system("cls");
 		spacing(1);
@@ -65,7 +65,7 @@ public:
 		getch();
 	}
 } loginKey;
-int login_screen()
+int login_screen()// Login Screen
 {
 	fstream f1;
 	spacing(1);
@@ -83,11 +83,11 @@ int login_screen()
 	scanf("%d", &i);
 	switch (i)
 	{
-	case 1:
+	case 1:// Case for Already User
 		system("cls");
 		getch();
 		break;
-	case 2:
+	case 2:// Case for New User
 		f1.open("UserDetails.dat", ios::in | ios::out | ios::app | ios::binary);
 		f1.write((char *)&loginKey, sizeof(loginKey));
 		loginKey.newUser();
@@ -97,7 +97,7 @@ int login_screen()
 	system("cls");
 	main_screen();
 }
-int main_screen()
+int main_screen()// Main Screen
 {
 	spacing(1);
 	spacing(2);
@@ -116,10 +116,10 @@ int main_screen()
 	spacing(2);
 	printf("Choose Option (1/2/3/4/5) : ");
 	scanf("%d", &i);
-	snd_screen(i);
+	choice_screen(i);
 	return 0;
 }
-int snd_screen(int input)
+int choice_screen(int input)
 {
 	switch (input)
 	{
@@ -133,7 +133,7 @@ int snd_screen(int input)
 		break;
 	case 3:
 		input_fn(input);
-		database();
+		enquiry();
 		break;
 	case 4:
 		input_fn(input);
@@ -286,18 +286,18 @@ int ticket_cancelation()
 	}
 	return 0;
 }
-int database()
+int enquiry()
 { //Function for Storing All Details
 	spacing(1);
 	spacing(2);
-	printf("\tDatabase\n");
+	printf("\tTrain Enquiry\n");
 	spacing(1);
 	spacing(2);
-	printf("--> User Database");
+	printf("--> By Name");
 	spacing(2);
-	printf("--> Admin Databse");
+	printf("--> By Number");
 	spacing(2);
-	printf("--> Travel Database");
+	printf("--> By Station");
 	spacing(2);
 	printf("--> Go Back");
 	spacing(2);
@@ -358,6 +358,55 @@ int thankyou()
 	sleep(1.5);
 	system("cls");
 	exit(0);
+}
+int database()
+{ //Function for Storing All Details
+	spacing(1);
+	spacing(2);
+	printf("\tDatabase\n");
+	spacing(1);
+	spacing(2);
+	printf("--> User Database");
+	spacing(2);
+	printf("--> Admin Databse");
+	spacing(2);
+	printf("--> Travel Database");
+	spacing(2);
+	printf("--> Go Back");
+	spacing(2);
+	printf("--> Exit");
+	spacing(2);
+	printf("Choose Option (1/2/3/4/5) : ");
+	scanf("%d", &i);
+	switch (i)
+	{
+	case 1:
+		input_fn(i);
+		break;
+	case 2:
+		input_fn(i);
+		break;
+	case 3:
+		input_fn(i);
+		break;
+	case 4:
+		input_fn(i);
+		main_screen();
+		break;
+	case 5:
+		input_fn(i);
+		thankyou();
+		break;
+	default:
+		printf("\n");
+		for (i = 0; i <= 5; i++)
+			printf("\t   ");
+		printf("------INVALID INPUT-------");
+		sleep(2);
+		system("cls");
+		database();
+	}
+	return 0;
 }
 int book_ticket()
 {
