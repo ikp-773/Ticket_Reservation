@@ -29,8 +29,8 @@ int main()
 }
 struct UserDetails
 { //Structure for User Details
-	char username[10][20];
-	char password[10][20];
+	char *username[10][20];
+	char *password[10][20];
 	int free;
 
 	UserDetails()
@@ -39,7 +39,7 @@ struct UserDetails
 		for(i=0;i<10;i++)
 			{
 				strcpy(username[i][20],"NIL");
-				strcpy(username[i][20],"NIL");
+				strcpy(password[i][20],"NIL");
 			}
 	}
 	int newUser()
