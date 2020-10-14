@@ -29,10 +29,19 @@ int main()
 }
 struct UserDetails
 { //Structure for User Details
-	char *username[10];
-	char *password[10];
-	int freespace, row_user;
+	char *username[10][20];
+	char *password[10][20];
+	int freespace;
 
+	UserDetails()
+	{
+		freespace=0;
+		for(i=0;i<10;i++)
+			{
+				strcpy(username[i][20],"NIL");
+				strcpy(username[i][20],"NIL");
+			}
+	}
 	int newUser()
 	{ //Function for creating new user
 		system("cls");
