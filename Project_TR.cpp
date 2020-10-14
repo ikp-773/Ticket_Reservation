@@ -1,4 +1,4 @@
-// Updated : 13-10-20 17:56
+// Updated : 14-10-20 17:32
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,27 +22,27 @@ int thankyou();
 int database();
 int book_ticket();
 int i;
-int main()// Main Function
-{
+int main()
+{ //Main Function
 	login_screen();
 	return 0;
 }
-struct login// Login structure for taking User Details
-{
+struct login
+{ //Structure for User Details
 	char *username[10];
 	char *password[10];
 	int freespace, row_user;
 
-	int clearData()// Function for Clearing all the Data
-	{
+	int clearData()
+	{ //Function for clearing all data from file
 		for (row_user = 0; row_user < 10; row_user++)
 		{
 			strcpy(username[row_user], "NIL");
 			strcpy(password[row_user], "NIL");
 		}
 	}
-	int newUser()// Function for accepting details of new User
-	{
+	int newUser()
+	{ //Function for creatinf new user
 		system("cls");
 		spacing(1);
 		spacing(2);
@@ -65,8 +65,8 @@ struct login// Login structure for taking User Details
 		getch();
 	}
 } loginKey;
-int login_screen()// Login Screen
-{
+int login_screen()
+{ //Login Screen
 	fstream f1;
 	spacing(1);
 	spacing(2);
@@ -97,8 +97,8 @@ int login_screen()// Login Screen
 	system("cls");
 	main_screen();
 }
-int main_screen()// Main Screen
-{
+int main_screen()
+{ //Main Screen
 	spacing(1);
 	spacing(2);
 	printf("\tTicket Reservation\n");
@@ -120,7 +120,7 @@ int main_screen()// Main Screen
 	return 0;
 }
 int choice_screen(int input)
-{
+{ //Function for choice input of main screen
 	switch (input)
 	{
 	case 1:
@@ -155,7 +155,7 @@ int choice_screen(int input)
 	return 0;
 }
 int spacing(int value)
-{
+{ //Function for spacing
 	switch (value)
 	{
 	case 1:
@@ -188,7 +188,7 @@ int input_fn(int input_value)
 	system("cls");
 }
 int ticket_booking()
-{ //Fuction for Ticket Booking Screen
+{ //Ticket Booking Screen
 	spacing(1);
 	spacing(2);
 	printf("\t  Ticket Booking\n");
@@ -238,7 +238,7 @@ int ticket_booking()
 	return 0;
 }
 int ticket_cancelation()
-{ //Fuction for Ticket Cancellation Screen
+{ //Ticket Cancellation Screen
 	spacing(1);
 	spacing(2);
 	printf("\tTicket Cancellation\n");
@@ -287,7 +287,7 @@ int ticket_cancelation()
 	return 0;
 }
 int enquiry()
-{ //Function for Storing All Details
+{ //Function for searching for train details
 	spacing(1);
 	spacing(2);
 	printf("\tTrain Enquiry\n");
@@ -336,7 +336,7 @@ int enquiry()
 	return 0;
 }
 int help()
-{ //Function for providing Help
+{ //Function for providing help
 	spacing(1);
 	spacing(2);
 	printf("\t     Help\n");
@@ -348,7 +348,7 @@ int help()
 	main_screen();
 }
 int thankyou()
-{ //Function for Thank You Screen
+{ //Thank You Screen
 	spacing(1);
 	spacing(2);
 	printf("\t   Thank You!");
@@ -409,7 +409,7 @@ int database()
 	return 0;
 }
 int book_ticket()
-{
+{ //Function for booking ticket
 	spacing(1);
 	spacing(2);
 }
