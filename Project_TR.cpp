@@ -108,10 +108,10 @@ struct UserDetails
 					indexValue = i;
 			if (indexValue != 0)
 			{ //given username is in file
-				if (strcmpi(given_password[20], password[indexValue] == 0))
+				if (strcmpi(given_password[20], password[indexValue]) == 0)
 				{ //given password matches the corresponding username
 					spacing(2);
-					printf("\tWelcome, " + username[i] + "\n");
+					printf("\tWelcome,%s \n", username[i]);
 					spacing(2);
 					main_screen();
 				}
