@@ -31,11 +31,11 @@ struct UserDetails
 { //Structure for User Details
 	char *username[10][20];
 	char *password[10][20];
-	int freespace;
+	int free;
 
 	UserDetails()
 	{
-		freespace=0;
+		free=0;
 		for(i=0;i<10;i++)
 			{
 				strcpy(username[i][20],"NIL");
@@ -51,18 +51,17 @@ struct UserDetails
 		spacing(1);
 		spacing(2);
 		for (i = 0; i < 10; i++)
-			if (strcmpi(username[i], "NIL") == 0)
+			if (strcmp(username[i][20], "NIL") == 0)
 			{
-				printf("inside");
-				freespace = i;
+				free = i;
 				break;
 			}
 		spacing(2);
 		printf("-->Username : ");
-		gets(username[freespace]);
+		gets(username[free]);
 		spacing(2);
 		printf("-->Password : ");
-		gets(password[freespace]);
+		gets(password[free]);
 		getch();
 		return 0;
 	}
