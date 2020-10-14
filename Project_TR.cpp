@@ -33,11 +33,6 @@ struct UserDetails
 	char *password[10];
 	int freespace, row_user;
 
-	int clearData()
-	{ //Function for clearing all data from file
-		remove("UserDetails.dat");
-		return 0;
-	}
 	int newUser()
 	{ //Function for creating new user
 		system("cls");
@@ -127,6 +122,11 @@ struct UserDetails
 				alreadyUser();
 			}
 		}
+	}
+	int clearData()
+	{ //Function for clearing all user data from file
+		remove("UserDetails.dat");
+		return 0;
 	}
 } dataKey;
 int login_screen()
