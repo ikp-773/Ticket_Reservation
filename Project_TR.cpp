@@ -1,4 +1,4 @@
-// Updated : 14-10-20 17:32
+// Updated : 14-10-20 18:17
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -69,6 +69,7 @@ struct UserDetails
 	int alreadyUser()
 	{ //Function for already user
 		char given_username[20], given_password[20];
+		int indexValue = 0;
 		system("cls");
 		spacing(1);
 		spacing(2);
@@ -81,27 +82,55 @@ struct UserDetails
 		printf("-->Password : ");
 		gets(given_password[20]);
 		if (strcmpi(given_username[20], "admin") == 0)
+		{ //given username is admin username
 			if (strcmpi(given_password[20], "admin") == 0)
-				else for (i = 0; i < 10; i++) if (strcmpi(given_username[20], username[i]) == 0)
-				{
-					if (strcmpi(given_password[20], password[i]) == 0)
-						spacing(2);
-					printf("Welcome, " + given_username[20]);
+			{ //all given credentials are correct
+				system("cls");
+				for (i = 0; i < 10; i++)
+					printf("\n\t\t\t\t   ");
+				printf("--------------REDIRECTING---------------");
+				sleep(1.5);
+				system("cls");
+				database();
+			}
+			else
+			{ //given password is not admin password
+				spacing(2);
+				printf("\tIncorrect Password, Please Try Again!\n")
 					spacing(2);
-					mainscreen();
-					else spacing(2);
-					printf("Wrong Password, Try Again!");
+				alreadyUser();
+			}
+		}
+		else
+		{ //given username is not admin credentials
+			for (i = 0; i < 10; i++)
+				if (strcmpi(given_username[20], username[i]) == 0)
+					indexValue = i;
+			if (indexValue != 0)
+			{ //given username is in file
+				if (strcmpi(given_password[20], password[indexValue] == 0))
+				{ //given password matches the corresponding username
+					spacing(2);
+					printf("\tWelcome, " + username[i] + "\n");
+					spacing(2);
+					main_screen();
+				}
+				else
+				{ //given password not matches the corresponding username
+					spacing(2);
+					printf("\tInvalid Password, Please Try Again!\n");
 					spacing(2);
 					alreadyUser();
 				}
-
+			}
 			else
-			{
+			{ //given username is not in file
 				spacing(2);
-				printf("No Such Users Found, Try Again!");
+				printf("\tNo Such Users Found, Please Try Again!\n");
 				spacing(2);
 				alreadyUser();
 			}
+		}
 	}
 } dataKey;
 int login_screen()
@@ -124,13 +153,13 @@ int login_screen()
 	{
 	case 1: // Case for Already User
 		alreadyUser_obj.open("UserDetails.dat", ios::in | ios::out | ios::app | ios::binary);
-		alreadyUser_obj.read((char *)&loginKey, sizeof(loginKey));
+		alreadyUser_obj.read((char *)&dataKey, sizeof(dataKey));
 		dataKey.alreadyUser();
 		alreadyUser_obj.close();
 		break;
 	case 2: // Case for New User
 		newUser_obj.open("UserDetails.dat", ios::in | ios::out | ios::app | ios::binary);
-		newUser_obj.write((char *)&loginKey, sizeof(loginKey));
+		newUser_obj.write((char *)&dataKey, sizeof(dataKey));
 		dataKey.newUser();
 		newUser_obj.close();
 		break;
