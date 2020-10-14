@@ -29,8 +29,8 @@ int main()
 }
 struct UserDetails
 { //Structure for User Details
-	char *username[10][20];
-	char *password[10][20];
+	char username[10][20];
+	char password[10][20];
 	int free;
 
 	UserDetails()
@@ -67,7 +67,7 @@ struct UserDetails
 	}
 	int alreadyUser()
 	{ //Function for already user
-		char* given_username[20];char* given_password[20];
+		char given_username[1][20];char given_password[1][20];
 		int indexValue = 0;
 		system("cls");
 		spacing(1);
@@ -76,13 +76,13 @@ struct UserDetails
 		spacing(1);
 		spacing(2);
 		printf("-->Username : ");
-		gets(given_username[20]);
+		gets(given_username[1][20]);
 		spacing(2);
 		printf("-->Password : ");
-		gets(given_password[20]);
-		if (strcmpi(given_username[20], "admin") == 0)
+		gets(given_password[[1]20]);
+		if (strcmp(given_username[1][20], "admin") == 0)
 		{ //given username is admin username
-			if (strcmpi(given_password[20], "admin") == 0)
+			if (strcmp(given_password[20], "admin") == 0)
 			{ //all given credentials are correct
 				system("cls");
 				for (i = 0; i < 10; i++)
