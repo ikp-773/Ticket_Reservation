@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <conio.h>
 #include <ctype.h>
 #include <fstream>
 #include <string.h>
@@ -13,7 +12,7 @@ int login_screen();
 int main_screen();
 int choice_screen(int);
 int input_fn(int);
-int spacing(int);
+int spacing(int); 
 int ticket_booking();
 int ticket_cancelation();
 int enquiry();
@@ -62,7 +61,6 @@ struct UserDetails
 		spacing(2);
 		printf("-->Password : ");
 		gets(password[free][20]);
-		getch();
 		return 0;
 	}
 	int alreadyUser()
@@ -419,7 +417,7 @@ int help()
 	spacing(1);
 	spacing(2);
 	printf("Press Any Key to Go Back.....");
-	getch();
+	sleep(2);
 	system("cls");
 	main_screen();
 }
