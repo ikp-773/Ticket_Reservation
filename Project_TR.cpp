@@ -99,11 +99,11 @@ class UserDetails
 		else
 		{ //given username is not admin credentials
 			for (i = 0; i < 10; i++)
-				if (strcmpi(given_username[1][20], username[i][20]) == 0)
+				if (strcmp(given_username[1][20], username[i][20]) == 0)
 					indexValue = i;
 			if (indexValue != 0)
 			{ //given username is in file
-				if (strcmpi(given_password[1][20], password[indexValue][20]) == 0)
+				if (strcmp(given_password[1][20], password[indexValue][20]) == 0)
 				{ //given password matches the corresponding username
 					spacing(2);
 					printf("\tWelcome,%s \n", username[i]);
