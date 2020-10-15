@@ -154,6 +154,7 @@ int login_screen()
 	spacing(2);
 	printf("Choose Option (1/2) : ");
 	scanf("%d", &i);
+	input_fn(i);
 	switch (i)
 	{
 	case 1: // Case for Already User
