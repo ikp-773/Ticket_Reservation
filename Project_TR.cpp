@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <conio.h>
 #include <ctype.h>
 #include <fstream>
 #include <string.h>
@@ -46,7 +47,7 @@ struct UserDetails
 		system("cls");
 		spacing(1);
 		spacing(2);
-		printf("\t    Sign Up\n");
+		printf("\t   Sign Up\n");
 		spacing(1);
 		spacing(2);
 		for (i = 0; i < 10; i++)
@@ -417,7 +418,7 @@ int help()
 	spacing(1);
 	spacing(2);
 	printf("Press Any Key to Go Back.....");
-	sleep(2);
+	getch();
 	system("cls");
 	main_screen();
 }
