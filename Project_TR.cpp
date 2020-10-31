@@ -1,11 +1,12 @@
 // Updated : 14-10-20 18:17
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <ctype.h>
-#include <fstream>
-#include <string.h>
+#include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<conio.h>
+#include<ctype.h>
+#include<fstream>
+#include<string.h>
 using namespace std;
 // Function Prototypes
 int login_screen();
@@ -21,17 +22,13 @@ int thankyou();
 int database();
 int book_ticket();
 int i; //Common Loop Variable
-int main()
-{ //Main Function
-	login_screen();
-	return 0;
-}
-struct UserDetails
+class UserDetails
 { //Structure for User Details
 	char *username[10][20];
 	char *password[10][20];
 	int free;
-
+	
+	public:
 	UserDetails()
 	{
 		free=0;
@@ -46,7 +43,7 @@ struct UserDetails
 		system("cls");
 		spacing(1);
 		spacing(2);
-		printf("\t    Sign Up\n");
+		printf("\t   Sign Up\n");
 		spacing(1);
 		spacing(2);
 		for (i = 0; i < 10; i++)
@@ -136,6 +133,11 @@ struct UserDetails
 		return 0;
 	}
 } dataKey;
+int main()
+{ //Main Function
+	login_screen();
+	return 0;
+}
 int login_screen()
 { //Login Screen
 	fstream alreadyUser_obj, newUser_obj;
@@ -417,7 +419,7 @@ int help()
 	spacing(1);
 	spacing(2);
 	printf("Press Any Key to Go Back.....");
-	sleep(2);
+	getch();
 	system("cls");
 	main_screen();
 }
